@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   # 数据库
   mysql:
@@ -38,6 +39,11 @@ services:
   blog:
     container_name: blog
     build: ./program/blog
+    environment:
+      - NEXT_PUBLIC_CACHING_TIME
+      - NEXT_PUBLIC_PROJECT_API
+      - NEXT_PUBLIC_GAODE_KEY_CODE
+      - NEXT_PUBLIC_GAODE_SECURITYJS_CODE
     ports:
       - "9001:9001"
     networks:
@@ -50,6 +56,13 @@ services:
   admin:
     container_name: admin
     build: ./program/admin
+    environment:
+      - VITE_PROJECT_API
+      - VITE_BAIDU_TONGJI_SITE_ID
+      - VITE_BAIDU_TONGJI_ACCESS_TOKEN
+      - VITE_AI_APIPassword
+      - VITE_AI_MODEL
+      - VITE_GAODE_WEB_API
     ports:
       - "9002:80"
     networks:
@@ -62,6 +75,15 @@ services:
   server:
     container_name: server
     build: ./program/server
+    environment:
+      - PORT
+      - DB_INFO
+      - DB_USERNAME
+      - DB_PASSWORD
+      - EMAIL_HOST
+      - EMAIL_PORT
+      - EMAIL_USERNAME
+      - EMAIL_PASSWORD
     ports:
       - "9003:9003"
     networks:

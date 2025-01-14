@@ -19,14 +19,6 @@ RUN npm config set registry https://registry.npmmirror.com
 # 安装依赖
 RUN npm install
 
-# 设置环境变量
-ENV VITE_PROJECT_API=http://你的后端域名/api
-ENV VITE_BAIDU_TONGJI_SITE_ID=百度统计站点ID
-ENV VITE_BAIDU_TONGJI_ACCESS_TOKEN=百度统计秘钥
-ENV VITE_AI_APIPassword=AI大模型秘钥
-ENV VITE_AI_MODEL=lite
-ENV VITE_GAODE_WEB_API=高德地图坐标秘钥
-
 # 复制项目文件
 COPY . .
 

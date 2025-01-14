@@ -19,12 +19,6 @@ RUN npm config set registry https://registry.npmmirror.com
 # 安装依赖
 RUN npm install
 
-# 设置环境变量
-ENV NEXT_PUBLIC_CACHING_TIME=0
-ENV NEXT_PUBLIC_PROJECT_API=http://你的后端域名/api
-ENV NEXT_PUBLIC_GAODE_KEY_CODE=高德地图key
-ENV NEXT_PUBLIC_GAODE_SECURITYJS_CODE=高德地图秘钥
-
 # 复制所有文件到工作目录
 COPY . .
 
